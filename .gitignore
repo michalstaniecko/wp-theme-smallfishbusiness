@@ -2,3 +2,7 @@ node_modules/
 themes/smallfishbusiness/build/
 .DS_Store
 *.log
+
+# Environment
+.env
+!.env.example
