@@ -131,6 +131,46 @@ function sfb_add_heading_ids( $content ) {
 add_filter( 'the_content', 'sfb_add_heading_ids' );
 
 /**
+ * Add loading="lazy" to images in content.
+ *
+ * @param string $content Post content.
+ * @return string Modified content with lazy loading.
+ */
+function sfb_add_lazy_loading( $content ) {
+    // Add loading="lazy" to img tags that don't have it
+    $content = preg_replace(
+        '/<img((?!loading=)[^>]*)>/i',
+        '<img$1 loading="lazy">',
+        $content
+    );
+    return $content;
+}
+add_filter( 'the_content', 'sfb_add_lazy_loading' );
+add_filter( 'post_thumbnail_html', 'sfb_add_lazy_loading' );
+
+/**
+ * Add fetchpriority="high" to above-the-fold featured images.
+ * Remove lazy loading for featured images on single posts/pages.
+ *
+ * @param string       $html              The post thumbnail HTML.
+ * @param int          $post_id           The post ID.
+ * @param int          $post_thumbnail_id The post thumbnail ID.
+ * @param string|int[] $size              The post thumbnail size.
+ * @param array        $attr              Attributes for the image markup.
+ * @return string Modified HTML.
+ */
+function sfb_featured_image_priority( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
+    // Add high priority for featured images (usually above the fold)
+    if ( is_single() || is_page() ) {
+        $html = str_replace( '<img', '<img fetchpriority="high"', $html );
+        // Remove lazy loading for featured image
+        $html = str_replace( ' loading="lazy"', '', $html );
+    }
+    return $html;
+}
+add_filter( 'post_thumbnail_html', 'sfb_featured_image_priority', 15, 5 );
+
+/**
  * Custom comment callback for wp_list_comments.
  *
  * @param WP_Comment $comment The comment object.

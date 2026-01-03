@@ -22,3 +22,6 @@ require_once get_template_directory() . '/inc/helpers.php';
 
 // Custom widgets
 require_once get_template_directory() . '/inc/widgets.php';
+
+// Performance optimizations
+require_once get_template_directory() . '/inc/performance.php';
