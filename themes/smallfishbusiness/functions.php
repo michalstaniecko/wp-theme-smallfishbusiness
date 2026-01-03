@@ -19,3 +19,6 @@ require_once get_template_directory() . '/inc/block-patterns.php';
 
 // Helper functions
 require_once get_template_directory() . '/inc/helpers.php';
+
+// Custom widgets
+require_once get_template_directory() . '/inc/widgets.php';
