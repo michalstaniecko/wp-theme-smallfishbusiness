@@ -25,3 +25,7 @@ require_once get_template_directory() . '/inc/widgets.php';
 
 // Performance optimizations
 require_once get_template_directory() . '/inc/performance.php';
+
+// Navigation Walker classes
+require_once get_template_directory() . '/inc/class-nav-walker.php';
+require_once get_template_directory() . '/inc/class-nav-walker-mobile.php';

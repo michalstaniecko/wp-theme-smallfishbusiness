@@ -47,7 +47,9 @@
                         'menu_class'     => 'nav-menu',
                         'container'      => false,
                         'fallback_cb'    => false,
-                        'depth'          => 1,
+                        'depth'          => 3,
+                        'walker'         => new SFB_Nav_Walker(),
+                        'items_wrap'     => '<ul id="%1$s" class="%2$s" role="menubar">%3$s</ul>',
                     ] );
                     ?>
                 </nav>

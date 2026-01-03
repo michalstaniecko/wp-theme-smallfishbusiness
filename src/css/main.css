@@ -125,34 +125,200 @@
   }
 }
 
-/* Navigation menu styles */
+/* =================================================================
+   Desktop Navigation - 3-Level Dropdown
+   ================================================================= */
 @layer components {
+  /* Level 1: Main horizontal navigation */
   .nav-menu {
-    @apply flex items-center space-x-8;
+    @apply flex items-center space-x-1;
   }
 
-  .nav-menu li a {
-    @apply text-gray-600 hover:text-gray-900 font-medium transition-colors;
+  .nav-menu > li {
+    @apply relative;
   }
 
-  .nav-menu li.current-menu-item a,
-  .nav-menu li.current_page_item a {
-    @apply text-primary-600;
+  .nav-menu > li > a {
+    @apply flex items-center gap-1 px-4 py-2 text-gray-600 hover:text-gray-900
+           font-medium transition-colors rounded-md hover:bg-gray-50;
   }
 
+  .nav-menu > li.current-menu-item > a,
+  .nav-menu > li.current_page_item > a,
+  .nav-menu > li.current-menu-ancestor > a {
+    @apply text-primary-600 bg-primary-50;
+  }
+
+  /* Dropdown arrows */
+  .dropdown-arrow {
+    @apply inline-block w-4 h-4 ml-1 transition-transform duration-200;
+  }
+
+  .dropdown-arrow--down {
+    @apply w-4 h-4;
+  }
+
+  .dropdown-arrow--right {
+    @apply w-3 h-3;
+  }
+
+  /* Rotate arrow when open */
+  .has-dropdown[aria-expanded="true"] > a .dropdown-arrow--down {
+    @apply rotate-180;
+  }
+
+  /* Level 2: Dropdown menu (opens below parent) */
+  .dropdown-menu--level-2 {
+    @apply absolute left-0 top-full mt-1 min-w-56 py-2 bg-white
+           rounded-lg shadow-lg border border-gray-100
+           opacity-0 invisible translate-y-2
+           transition-all duration-200 ease-out z-50;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /* Show Level 2 on hover/focus */
+  .has-dropdown:hover > .dropdown-menu--level-2,
+  .has-dropdown:focus-within > .dropdown-menu--level-2,
+  .has-dropdown[aria-expanded="true"] > .dropdown-menu--level-2 {
+    @apply opacity-100 visible translate-y-0;
+  }
+
+  /* Level 2 menu items */
+  .dropdown-menu--level-2 > li {
+    @apply relative;
+  }
+
+  .dropdown-menu--level-2 > li > a {
+    @apply flex items-center justify-between gap-2 px-4 py-2
+           text-gray-600 hover:text-gray-900 hover:bg-gray-50
+           transition-colors;
+  }
+
+  .dropdown-menu--level-2 > li.current-menu-item > a,
+  .dropdown-menu--level-2 > li.current_page_item > a {
+    @apply text-primary-600 bg-primary-50;
+  }
+
+  /* Level 3: Flyout submenu (opens to the right) */
+  .dropdown-menu--level-3 {
+    @apply absolute left-full top-0 -mt-2 ml-1 min-w-48 py-2 bg-white
+           rounded-lg shadow-lg border border-gray-100
+           opacity-0 invisible translate-x-2
+           transition-all duration-200 ease-out z-50;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /* Flip to left when near screen edge */
+  .dropdown-menu--level-3.flip-left {
+    @apply left-auto right-full mr-1 -translate-x-2;
+  }
+
+  .dropdown-menu--level-3.flip-left.is-visible {
+    @apply translate-x-0;
+  }
+
+  /* Show Level 3 on hover/focus */
+  .dropdown-menu--level-2 > .has-dropdown:hover > .dropdown-menu--level-3,
+  .dropdown-menu--level-2 > .has-dropdown:focus-within > .dropdown-menu--level-3,
+  .dropdown-menu--level-2 > .has-dropdown[aria-expanded="true"] > .dropdown-menu--level-3 {
+    @apply opacity-100 visible translate-x-0;
+  }
+
+  /* Level 3 menu items */
+  .dropdown-menu--level-3 > li > a {
+    @apply block px-4 py-2 text-gray-600 hover:text-gray-900
+           hover:bg-gray-50 transition-colors;
+  }
+
+  .dropdown-menu--level-3 > li.current-menu-item > a {
+    @apply text-primary-600 bg-primary-50;
+  }
+}
+
+/* =================================================================
+   Mobile Navigation - 3-Level Accordion
+   ================================================================= */
+@layer components {
   .mobile-nav-menu {
-    @apply space-y-2;
+    @apply space-y-1;
+    list-style: none;
+    padding-left: 0;
   }
 
-  .mobile-nav-menu li a {
-    @apply block py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors;
+  .mobile-menu-item {
+    @apply border-b border-gray-100 last:border-b-0;
   }
 
-  .mobile-nav-menu li.current-menu-item a,
-  .mobile-nav-menu li.current_page_item a {
+  .mobile-menu-item-wrapper {
+    @apply flex items-center;
+  }
+
+  .mobile-menu-item > a,
+  .mobile-menu-item-wrapper > a {
+    @apply flex-1 block py-3 px-4 text-gray-600 hover:text-gray-900
+           font-medium transition-colors;
+  }
+
+  .mobile-menu-item.current-menu-item > a,
+  .mobile-menu-item-wrapper > a.current-menu-item {
     @apply text-primary-600;
   }
 
+  /* Submenu toggle button */
+  .mobile-submenu-toggle {
+    @apply flex items-center justify-center w-12 h-12
+           text-gray-400 hover:text-gray-600 transition-colors;
+  }
+
+  .mobile-toggle-icon {
+    @apply w-5 h-5 transition-transform duration-200;
+  }
+
+  .mobile-submenu-toggle[aria-expanded="true"] .mobile-toggle-icon {
+    @apply rotate-180;
+  }
+
+  /* Mobile submenus */
+  .mobile-submenu {
+    @apply bg-gray-50 overflow-hidden;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .mobile-submenu[hidden] {
+    @apply hidden;
+  }
+
+  .mobile-submenu--level-2 {
+    @apply pl-4;
+  }
+
+  .mobile-submenu--level-3 {
+    @apply pl-4 bg-gray-100;
+  }
+
+  .mobile-submenu .mobile-menu-item {
+    @apply border-gray-200;
+  }
+
+  .mobile-submenu .mobile-menu-item > a,
+  .mobile-submenu .mobile-menu-item-wrapper > a {
+    @apply py-2 text-sm;
+  }
+
+  /* Animation for mobile submenu expansion */
+  .mobile-submenu.is-animating {
+    @apply block;
+    transition: max-height 0.3s ease-out;
+  }
+}
+
+/* =================================================================
+   Widget & UI Components
+   ================================================================= */
+@layer components {
   /* Widget styles */
   .widget {
     @apply bg-white rounded-lg p-6 shadow-sm;
