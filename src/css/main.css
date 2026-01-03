@@ -168,4 +168,22 @@
   .navigation.pagination .page-numbers.dots {
     @apply cursor-default hover:bg-transparent;
   }
+
+  /* Table of Contents */
+  #toc-container {
+    @apply bg-gray-50 rounded-lg p-6;
+  }
+
+  #toc .toc-link {
+    @apply block py-1.5 text-sm text-gray-600 transition-colors duration-200;
+    @apply border-l-2 border-transparent pl-3 -ml-px;
+  }
+
+  #toc .toc-link:hover {
+    @apply text-primary-600 border-primary-300;
+  }
+
+  #toc .toc-link.active {
+    @apply text-primary-600 font-medium border-primary-600;
+  }
 }

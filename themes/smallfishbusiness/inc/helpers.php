@@ -97,6 +97,40 @@ function sfb_get_primary_category( $post_id = null ) {
 }
 
 /**
+ * Add IDs to headings in content for TOC.
+ *
+ * @param string $content Post content.
+ * @return string Modified content with heading IDs.
+ */
+function sfb_add_heading_ids( $content ) {
+    if ( ! is_single() ) {
+        return $content;
+    }
+
+    $pattern = '/<h([2-3])([^>]*)>(.*?)<\/h[2-3]>/i';
+
+    $counter = 0;
+    $callback = function( $matches ) use ( &$counter ) {
+        $counter++;
+
+        $level = $matches[1];
+        $attrs = $matches[2];
+        $text  = $matches[3];
+
+        // Check if ID already exists
+        if ( strpos( $attrs, 'id=' ) === false ) {
+            $id    = sanitize_title( wp_strip_all_tags( $text ) ) . '-' . $counter;
+            $attrs = ' id="' . esc_attr( $id ) . '"' . $attrs;
+        }
+
+        return "<h{$level}{$attrs}>{$text}</h{$level}>";
+    };
+
+    return preg_replace_callback( $pattern, $callback, $content );
+}
+add_filter( 'the_content', 'sfb_add_heading_ids' );
+
+/**
  * Custom comment callback for wp_list_comments.
  *
  * @param WP_Comment $comment The comment object.
