@@ -95,3 +95,76 @@ function sfb_get_primary_category( $post_id = null ) {
     // Return first category (can be enhanced with Yoast SEO primary category)
     return $categories[0];
 }
+
+/**
+ * Custom comment callback for wp_list_comments.
+ *
+ * @param WP_Comment $comment The comment object.
+ * @param array      $args    Arguments passed to wp_list_comments.
+ * @param int        $depth   Depth of the current comment.
+ */
+function sfb_comment_callback( $comment, $args, $depth ) {
+    $tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+    ?>
+    <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( 'bg-gray-50 rounded-lg p-6', $comment ); ?>>
+        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+            <footer class="comment-meta flex items-start gap-4 mb-4">
+                <div class="comment-author vcard flex-shrink-0">
+                    <?php echo get_avatar( $comment, 48, '', '', [ 'class' => 'rounded-full' ] ); ?>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="fn font-semibold text-gray-900">
+                            <?php echo get_comment_author_link( $comment ); ?>
+                        </span>
+                        <time datetime="<?php echo esc_attr( get_comment_date( 'c', $comment ) ); ?>" class="text-sm text-gray-500">
+                            <?php
+                            printf(
+                                /* translators: 1: comment date, 2: comment time */
+                                esc_html__( '%1$s at %2$s', 'smallfishbusiness' ),
+                                get_comment_date( '', $comment ),
+                                get_comment_time()
+                            );
+                            ?>
+                        </time>
+                    </div>
+
+                    <?php if ( '0' === $comment->comment_approved ) : ?>
+                        <p class="comment-awaiting-moderation text-sm text-amber-600 mt-1">
+                            <?php esc_html_e( 'Your comment is awaiting moderation.', 'smallfishbusiness' ); ?>
+                        </p>
+                    <?php endif; ?>
+                </div>
+            </footer>
+
+            <div class="comment-content prose prose-sm max-w-none text-gray-700 mb-4">
+                <?php comment_text(); ?>
+            </div>
+
+            <div class="reply text-sm">
+                <?php
+                comment_reply_link(
+                    array_merge(
+                        $args,
+                        [
+                            'add_below' => 'div-comment',
+                            'depth'     => $depth,
+                            'max_depth' => $args['max_depth'],
+                            'before'    => '<span class="text-primary-600 hover:text-primary-700 font-medium">',
+                            'after'     => '</span>',
+                        ]
+                    )
+                );
+                ?>
+
+                <?php
+                edit_comment_link(
+                    esc_html__( 'Edit', 'smallfishbusiness' ),
+                    '<span class="edit-link text-gray-500 hover:text-gray-700 ml-4">',
+                    '</span>'
+                );
+                ?>
+            </div>
+        </article>
+    <?php
+}
