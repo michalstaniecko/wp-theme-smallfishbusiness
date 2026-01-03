@@ -1,0 +1,4 @@
+node_modules/
+themes/smallfishbusiness/build/
+.DS_Store
+*.log
