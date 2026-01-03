@@ -96,13 +96,8 @@
     },
     "elements": {
       "link": {
-        "color": {
-          "text": "var(--wp--preset--color--primary-600)"
-        },
-        ":hover": {
-          "color": {
-            "text": "var(--wp--preset--color--primary-700)"
-          }
+        "typography": {
+          "textDecoration": "none"
         }
       },
       "heading": {
