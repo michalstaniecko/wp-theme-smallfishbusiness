@@ -14,5 +14,8 @@ require_once get_template_directory() . '/inc/enqueue.php';
 // Gutenberg configuration
 require_once get_template_directory() . '/inc/gutenberg.php';
 
+// Block patterns
+require_once get_template_directory() . '/inc/block-patterns.php';
+
 // Helper functions
 require_once get_template_directory() . '/inc/helpers.php';

@@ -3,6 +3,10 @@
 /* Import TailwindCSS */
 @import "tailwindcss";
 
+/* Gutenberg block styles */
+@import "./gutenberg/blocks.css";
+@import "./gutenberg/editor.css";
+
 /* Content sources for class detection */
 @source "../../themes/smallfishbusiness/**/*.php";
 @source "../js/**/*.js";

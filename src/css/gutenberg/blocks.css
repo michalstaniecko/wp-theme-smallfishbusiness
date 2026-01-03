@@ -1,0 +1,219 @@
+/**
+ * Gutenberg Block Styles
+ * Custom styles for WordPress core blocks
+ *
+ * @package SmallFishBusiness
+ */
+
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+.wp-block-heading.is-style-underline {
+    @apply pb-2 border-b-2 border-primary-600;
+}
+
+.wp-block-heading.is-style-accent {
+    @apply text-primary-600;
+}
+
+/* ==========================================================================
+   Paragraphs
+   ========================================================================== */
+
+.wp-block-paragraph.is-style-lead {
+    @apply text-xl text-gray-600 leading-relaxed;
+}
+
+.wp-block-paragraph.is-style-highlight {
+    @apply bg-yellow-50 border-l-4 border-yellow-400 pl-4 py-2;
+}
+
+/* ==========================================================================
+   Quotes
+   ========================================================================== */
+
+.wp-block-quote.is-style-bordered {
+    @apply border-l-4 border-primary-600 pl-6 italic;
+}
+
+.wp-block-quote.is-style-bordered cite {
+    @apply not-italic text-gray-500 text-sm;
+}
+
+.wp-block-quote.is-style-large {
+    @apply text-2xl text-center italic text-gray-600;
+    @apply border-none pl-0;
+}
+
+.wp-block-quote.is-style-large::before {
+    content: '"';
+    @apply text-6xl text-primary-200 block leading-none;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+.wp-block-list.is-style-checklist {
+    @apply list-none pl-0;
+}
+
+.wp-block-list.is-style-checklist li {
+    @apply relative pl-7;
+}
+
+.wp-block-list.is-style-checklist li::before {
+    content: '\2713';
+    @apply absolute left-0 text-green-500 font-bold;
+}
+
+/* ==========================================================================
+   Images
+   ========================================================================== */
+
+.wp-block-image.is-style-rounded img {
+    @apply rounded-lg;
+}
+
+.wp-block-image.is-style-shadow img {
+    @apply shadow-lg;
+}
+
+/* ==========================================================================
+   Groups / Containers
+   ========================================================================== */
+
+.wp-block-group.is-style-card {
+    @apply bg-white rounded-lg shadow-sm p-6 border border-gray-100;
+}
+
+.wp-block-group.is-style-highlight-box {
+    @apply bg-primary-50 rounded-lg p-6 border-l-4 border-primary-600;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.wp-block-button__link {
+    @apply bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors;
+    @apply no-underline font-medium;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+    @apply bg-transparent text-primary-600 border-2 border-primary-600;
+    @apply hover:bg-primary-600 hover:text-white;
+}
+
+/* ==========================================================================
+   Columns
+   ========================================================================== */
+
+.wp-block-column.is-style-card {
+    @apply bg-white rounded-lg shadow-sm p-6 border border-gray-100;
+}
+
+/* ==========================================================================
+   Separator
+   ========================================================================== */
+
+.wp-block-separator {
+    @apply border-gray-200;
+}
+
+.wp-block-separator.is-style-wide {
+    @apply border-gray-300;
+}
+
+.wp-block-separator.is-style-dots {
+    @apply border-none text-center;
+}
+
+.wp-block-separator.is-style-dots::before {
+    content: '···';
+    @apply text-gray-400 text-2xl tracking-widest;
+}
+
+/* ==========================================================================
+   Code Block
+   ========================================================================== */
+
+.wp-block-code {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+}
+
+.wp-block-code code {
+    @apply text-sm font-mono;
+}
+
+/* ==========================================================================
+   Preformatted
+   ========================================================================== */
+
+.wp-block-preformatted {
+    @apply bg-gray-100 p-4 rounded-lg overflow-x-auto font-mono text-sm;
+}
+
+/* ==========================================================================
+   Table
+   ========================================================================== */
+
+.wp-block-table table {
+    @apply w-full border-collapse;
+}
+
+.wp-block-table th,
+.wp-block-table td {
+    @apply border border-gray-200 px-4 py-2 text-left;
+}
+
+.wp-block-table th {
+    @apply bg-gray-50 font-semibold;
+}
+
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+    @apply bg-gray-50;
+}
+
+/* ==========================================================================
+   Pullquote
+   ========================================================================== */
+
+.wp-block-pullquote {
+    @apply border-t-4 border-b-4 border-primary-600 py-6 my-8;
+}
+
+.wp-block-pullquote blockquote {
+    @apply text-xl italic text-center text-gray-700;
+}
+
+.wp-block-pullquote cite {
+    @apply text-sm text-gray-500 not-italic block mt-2;
+}
+
+/* ==========================================================================
+   Cover Block
+   ========================================================================== */
+
+.wp-block-cover {
+    @apply rounded-lg overflow-hidden;
+}
+
+.wp-block-cover-image-text,
+.wp-block-cover-text,
+.wp-block-cover__inner-container {
+    @apply text-white;
+}
+
+/* ==========================================================================
+   Media & Text
+   ========================================================================== */
+
+.wp-block-media-text {
+    @apply gap-8;
+}
+
+.wp-block-media-text .wp-block-media-text__content {
+    @apply p-0;
+}

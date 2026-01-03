@@ -1,0 +1,162 @@
+/**
+ * Gutenberg Editor Styles
+ * Styles specific to the block editor to match frontend appearance
+ *
+ * @package SmallFishBusiness
+ */
+
+/* ==========================================================================
+   Editor Wrapper
+   ========================================================================== */
+
+.editor-styles-wrapper {
+    @apply font-sans text-gray-900;
+}
+
+.editor-styles-wrapper .wp-block {
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   Post Title
+   ========================================================================== */
+
+.editor-post-title__input {
+    @apply text-3xl font-bold text-gray-900;
+}
+
+/* ==========================================================================
+   Block Placeholders
+   ========================================================================== */
+
+.editor-styles-wrapper .block-editor-block-list__block.is-selected .block-editor-rich-text__editable:empty::before {
+    @apply text-gray-400;
+}
+
+/* ==========================================================================
+   Typography in Editor
+   ========================================================================== */
+
+.editor-styles-wrapper h1 {
+    @apply text-3xl md:text-4xl font-semibold leading-tight text-gray-900;
+}
+
+.editor-styles-wrapper h2 {
+    @apply text-2xl md:text-3xl font-semibold leading-tight text-gray-900;
+}
+
+.editor-styles-wrapper h3 {
+    @apply text-xl md:text-2xl font-semibold leading-tight text-gray-900;
+}
+
+.editor-styles-wrapper h4 {
+    @apply text-lg md:text-xl font-semibold leading-tight text-gray-900;
+}
+
+.editor-styles-wrapper p {
+    @apply mb-4 last:mb-0 leading-relaxed;
+}
+
+.editor-styles-wrapper a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors;
+}
+
+/* ==========================================================================
+   Block Width Constraints
+   ========================================================================== */
+
+.editor-styles-wrapper .wp-block-post-content > .wp-block {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.editor-styles-wrapper .wp-block-post-content > .wp-block.alignwide {
+    max-width: 1100px;
+}
+
+.editor-styles-wrapper .wp-block-post-content > .wp-block.alignfull {
+    max-width: none;
+}
+
+/* ==========================================================================
+   Lists in Editor
+   ========================================================================== */
+
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol {
+    @apply pl-6 mb-4;
+}
+
+.editor-styles-wrapper ul {
+    @apply list-disc;
+}
+
+.editor-styles-wrapper ol {
+    @apply list-decimal;
+}
+
+.editor-styles-wrapper li {
+    @apply mb-1;
+}
+
+/* ==========================================================================
+   Blockquote in Editor
+   ========================================================================== */
+
+.editor-styles-wrapper blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600;
+}
+
+/* ==========================================================================
+   Code in Editor
+   ========================================================================== */
+
+.editor-styles-wrapper code {
+    @apply bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.editor-styles-wrapper pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+}
+
+.editor-styles-wrapper pre code {
+    @apply bg-transparent p-0;
+}
+
+/* ==========================================================================
+   Tables in Editor
+   ========================================================================== */
+
+.editor-styles-wrapper table {
+    @apply w-full border-collapse mb-4;
+}
+
+.editor-styles-wrapper th,
+.editor-styles-wrapper td {
+    @apply border border-gray-200 px-4 py-2 text-left;
+}
+
+.editor-styles-wrapper th {
+    @apply bg-gray-50 font-semibold;
+}
+
+/* ==========================================================================
+   Image Captions
+   ========================================================================== */
+
+.editor-styles-wrapper figcaption {
+    @apply text-sm text-gray-500 text-center mt-2;
+}
+
+/* ==========================================================================
+   Block Spacing
+   ========================================================================== */
+
+.editor-styles-wrapper .wp-block {
+    @apply mb-4;
+}
+
+.editor-styles-wrapper .wp-block:last-child {
+    @apply mb-0;
+}

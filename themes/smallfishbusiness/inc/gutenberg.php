@@ -42,3 +42,70 @@ function sfb_enqueue_editor_assets() {
     }
 }
 add_action( 'enqueue_block_editor_assets', 'sfb_enqueue_editor_assets' );
+
+/**
+ * Register custom block styles for core blocks.
+ */
+function sfb_register_block_styles() {
+    // Heading styles
+    register_block_style( 'core/heading', [
+        'name'  => 'underline',
+        'label' => __( 'With underline', 'smallfishbusiness' ),
+    ] );
+
+    register_block_style( 'core/heading', [
+        'name'  => 'accent',
+        'label' => __( 'Accent color', 'smallfishbusiness' ),
+    ] );
+
+    // Paragraph styles
+    register_block_style( 'core/paragraph', [
+        'name'  => 'lead',
+        'label' => __( 'Lead paragraph', 'smallfishbusiness' ),
+    ] );
+
+    register_block_style( 'core/paragraph', [
+        'name'  => 'highlight',
+        'label' => __( 'Highlighted', 'smallfishbusiness' ),
+    ] );
+
+    // Quote styles
+    register_block_style( 'core/quote', [
+        'name'  => 'bordered',
+        'label' => __( 'Left border', 'smallfishbusiness' ),
+    ] );
+
+    register_block_style( 'core/quote', [
+        'name'  => 'large',
+        'label' => __( 'Large quote', 'smallfishbusiness' ),
+    ] );
+
+    // List styles
+    register_block_style( 'core/list', [
+        'name'  => 'checklist',
+        'label' => __( 'Checklist', 'smallfishbusiness' ),
+    ] );
+
+    // Image styles
+    register_block_style( 'core/image', [
+        'name'  => 'rounded',
+        'label' => __( 'Rounded corners', 'smallfishbusiness' ),
+    ] );
+
+    register_block_style( 'core/image', [
+        'name'  => 'shadow',
+        'label' => __( 'With shadow', 'smallfishbusiness' ),
+    ] );
+
+    // Group/Container styles
+    register_block_style( 'core/group', [
+        'name'  => 'card',
+        'label' => __( 'Card', 'smallfishbusiness' ),
+    ] );
+
+    register_block_style( 'core/group', [
+        'name'  => 'highlight-box',
+        'label' => __( 'Highlight box', 'smallfishbusiness' ),
+    ] );
+}
+add_action( 'init', 'sfb_register_block_styles' );
