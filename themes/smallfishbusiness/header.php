@@ -23,7 +23,7 @@
     </a>
 
     <header id="masthead" class="site-header bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4">
+        <div class="container-fluid">
             <div class="flex items-center justify-between h-16 lg:h-20">
                 <!-- Logo -->
                 <div class="site-branding flex-shrink-0">

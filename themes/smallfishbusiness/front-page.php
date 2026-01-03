@@ -11,7 +11,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-	<div class="container mx-auto px-4 py-8">
+	<div class="container-fluid py-8">
 		<h1 class="sr-only"><?php bloginfo( 'name' ); ?></h1>
 
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -28,8 +28,8 @@ get_header();
 				$query = new WP_Query( $args );
 
 				if ( $query->have_posts() ) :
-					?>
-					<div class="space-y-8">
+				?>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
 						<?php
 						while ( $query->have_posts() ) :
 							$query->the_post();
@@ -38,14 +38,16 @@ get_header();
 						?>
 					</div>
 
-					<?php
-					// Set global query for pagination to work.
-					$GLOBALS['wp_query'] = $query;
-					get_template_part( 'template-parts/components/pagination' );
-					wp_reset_postdata();
-					?>
+					<div class="mt-12">
+						<?php
+						// Set global query for pagination to work.
+						$GLOBALS['wp_query'] = $query;
+						get_template_part( 'template-parts/components/pagination' );
+						wp_reset_postdata();
+						?>
+					</div>
 				<?php else : ?>
-					<div class="bg-white rounded-lg shadow-sm p-8 text-center">
+					<div class="text-center py-12">
 						<p class="text-gray-600">
 							<?php esc_html_e( 'No posts found.', 'smallfishbusiness' ); ?>
 						</p>

@@ -10,7 +10,7 @@
 
     <footer id="colophon" class="site-footer bg-gray-900 text-gray-300 mt-auto">
         <!-- Footer Widgets -->
-        <div class="container mx-auto px-4 py-12">
+        <div class="container-fluid py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Column 1: About -->
                 <div>
@@ -46,7 +46,7 @@
         <!-- Footer Navigation -->
         <?php if ( has_nav_menu( 'footer' ) ) : ?>
             <div class="border-t border-gray-800">
-                <div class="container mx-auto px-4 py-4">
+                <div class="container-fluid py-4">
                     <nav class="footer-navigation flex flex-wrap justify-center gap-6">
                         <?php
                         wp_nav_menu( [
@@ -65,7 +65,7 @@
 
         <!-- Copyright -->
         <div class="border-t border-gray-800">
-            <div class="container mx-auto px-4 py-6">
+            <div class="container-fluid py-6">
                 <p class="text-sm text-gray-500 text-center">
                     &copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>.
                     <?php esc_html_e( 'All rights reserved.', 'smallfishbusiness' ); ?>

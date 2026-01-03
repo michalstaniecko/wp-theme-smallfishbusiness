@@ -11,7 +11,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-	<div class="container mx-auto px-4 py-8">
+	<div class="container-fluid py-8">
 		<!-- Breadcrumbs -->
 		<?php get_template_part( 'template-parts/components/breadcrumbs' ); ?>
 
@@ -31,7 +31,7 @@ get_header();
 			<!-- Main Content -->
 			<div class="lg:col-span-2">
 				<?php if ( have_posts() ) : ?>
-					<div class="space-y-8">
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
 						<?php
 						while ( have_posts() ) :
 							the_post();
@@ -40,9 +40,11 @@ get_header();
 						?>
 					</div>
 
-					<?php get_template_part( 'template-parts/components/pagination' ); ?>
+					<div class="mt-12">
+						<?php get_template_part( 'template-parts/components/pagination' ); ?>
+					</div>
 				<?php else : ?>
-					<div class="bg-white rounded-lg shadow-sm p-8 text-center">
+					<div class="text-center py-12">
 						<p class="text-gray-600">
 							<?php esc_html_e( 'No posts found in this category.', 'smallfishbusiness' ); ?>
 						</p>

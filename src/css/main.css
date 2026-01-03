@@ -100,13 +100,6 @@
 
 /* Responsive layout components */
 @layer components {
-  /* Container with responsive padding */
-  .container {
-    @apply mx-auto px-4;
-    @apply sm:px-6;
-    @apply lg:px-8;
-    max-width: 1280px;
-  }
 
   /* Main grid: 1 column on mobile, 3 columns on desktop */
   .main-grid {
@@ -393,5 +386,13 @@
 
   #toc .toc-link.active {
     @apply text-primary-600 font-medium border-primary-600;
+  }
+
+  /* Fluid container - 100% width up to 1440px max */
+  .container-fluid {
+    @apply w-full mx-auto px-4;
+    @apply sm:px-6;
+    @apply lg:px-8;
+    max-width: 1440px;
   }
 }

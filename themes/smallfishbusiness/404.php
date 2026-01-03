@@ -11,7 +11,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-	<div class="container mx-auto px-4 py-16">
+	<div class="container-fluid py-16">
 		<div class="max-w-2xl mx-auto text-center">
 			<h1 class="text-6xl md:text-8xl font-bold text-gray-900 mb-4">404</h1>
 
