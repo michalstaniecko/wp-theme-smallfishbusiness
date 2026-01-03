@@ -5,7 +5,11 @@
 // Import CSS for Vite processing
 import '../css/main.css';
 
+// Import modules
+import { initMobileMenu } from './modules/mobile-menu.js';
+
 // DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Small Fish Business theme loaded');
+    // Initialize mobile menu
+    initMobileMenu();
 });

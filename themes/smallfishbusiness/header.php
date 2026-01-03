@@ -14,37 +14,65 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class( 'bg-gray-50' ); ?>>
 <?php wp_body_open(); ?>
 
-<div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#primary">
+<div id="page" class="site min-h-screen flex flex-col">
+    <a class="skip-link sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded" href="#primary">
         <?php esc_html_e( 'Skip to content', 'smallfishbusiness' ); ?>
     </a>
 
-    <header id="masthead" class="site-header">
-        <div class="site-branding">
-            <?php if ( has_custom_logo() ) : ?>
-                <?php the_custom_logo(); ?>
-            <?php else : ?>
-                <h1 class="site-title">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                        <?php bloginfo( 'name' ); ?>
-                    </a>
-                </h1>
-            <?php endif; ?>
+    <header id="masthead" class="site-header bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="site-branding flex-shrink-0">
+                    <?php if ( has_custom_logo() ) : ?>
+                        <?php the_custom_logo(); ?>
+                    <?php else : ?>
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center">
+                            <span class="text-xl font-bold text-gray-900 hover:text-primary-600 transition-colors">
+                                <?php bloginfo( 'name' ); ?>
+                            </span>
+                        </a>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav id="site-navigation" class="main-navigation hidden lg:flex items-center">
+                    <?php
+                    wp_nav_menu( [
+                        'theme_location' => 'primary',
+                        'menu_id'        => 'primary-menu',
+                        'menu_class'     => 'nav-menu',
+                        'container'      => false,
+                        'fallback_cb'    => false,
+                        'depth'          => 1,
+                    ] );
+                    ?>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button type="button"
+                        class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+                        id="mobile-menu-toggle"
+                        aria-expanded="false"
+                        aria-controls="mobile-menu">
+                    <span class="sr-only"><?php esc_html_e( 'Open menu', 'smallfishbusiness' ); ?></span>
+                    <!-- Hamburger icon -->
+                    <svg class="w-6 h-6 hamburger-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <!-- Close icon (hidden by default) -->
+                    <svg class="w-6 h-6 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
         </div>
 
-        <nav id="site-navigation" class="main-navigation">
-            <?php
-            wp_nav_menu( [
-                'theme_location' => 'primary',
-                'menu_id'        => 'primary-menu',
-                'container'      => false,
-                'fallback_cb'    => false,
-            ] );
-            ?>
-        </nav>
+        <!-- Mobile Navigation -->
+        <?php get_template_part( 'template-parts/header/navigation', 'mobile' ); ?>
     </header>
 
-    <div id="content" class="site-content">
+    <div id="content" class="site-content flex-grow">
