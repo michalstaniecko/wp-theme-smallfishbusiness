@@ -75,17 +75,21 @@ get_header();
 					</div>
 
 					<!-- Table of Contents (above article) -->
+					<?php if ( sfb_has_toc() ) : ?>
 					<div id="toc-wrapper" class="mb-8">
-						<div id="toc-container" class="hidden bg-gray-50 rounded-lg overflow-hidden">
+						<div id="toc-container" class="bg-gray-50 rounded-lg overflow-hidden">
 							<button id="toc-toggle" type="button" class="w-full flex items-center justify-between p-4 hover:bg-gray-100 transition-colors cursor-pointer">
 								<span class="font-semibold text-gray-900"><?php esc_html_e( 'Table of Contents', 'smallfishbusiness' ); ?></span>
 								<svg id="toc-toggle-icon" class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
 								</svg>
 							</button>
-							<nav id="toc" class="px-4 pb-4 text-sm"></nav>
+							<div class="px-4 pb-4 text-sm">
+								<?php sfb_the_toc(); ?>
+							</div>
 						</div>
 					</div>
+					<?php endif; ?>
 
 					<!-- Content -->
 					<div class="prose prose-lg max-w-none">
@@ -170,6 +174,7 @@ get_header();
 
 </main>
 
+<?php if ( sfb_has_toc() ) : ?>
 <!-- Sticky ToC (appears when scrolled past main ToC) -->
 <div id="toc-sticky" class="fixed top-20 left-0 right-0 z-40 hidden">
 	<div class="bg-white border-b border-gray-200 shadow-sm">
@@ -186,11 +191,14 @@ get_header();
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
 					</svg>
 				</button>
-				<nav id="toc-sticky-content" class="hidden text-sm py-2 max-h-60 overflow-y-auto"></nav>
+				<div id="toc-sticky-content" class="hidden text-sm py-2 max-h-60 overflow-y-auto">
+					<?php sfb_the_toc(); ?>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 
 <?php
 get_footer();

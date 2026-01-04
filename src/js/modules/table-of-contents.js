@@ -1,14 +1,18 @@
 /**
- * Table of Contents Module
- * Generates TOC from article headings (H2, H3)
- * Features: smooth scroll, active section highlighting, collapsible, sticky bar
+ * Table of Contents Module - Progressive Enhancement
+ *
+ * ToC is rendered server-side for SEO. This module adds interactivity:
+ * - Smooth scroll on click
+ * - Active section highlighting
+ * - Collapsible toggle
+ * - Sticky bar behavior
  */
 
 export function initTableOfContents() {
     const articleContent = document.querySelector('.prose');
     const tocWrapper = document.getElementById('toc-wrapper');
     const tocContainer = document.getElementById('toc-container');
-    const tocNav = document.getElementById('toc');
+    const tocNav = document.querySelector('#toc-container .toc-nav');
     const tocToggle = document.getElementById('toc-toggle');
     const tocToggleIcon = document.getElementById('toc-toggle-icon');
 
@@ -18,37 +22,13 @@ export function initTableOfContents() {
     const stickyIcon = document.getElementById('toc-sticky-icon');
     const stickyContent = document.getElementById('toc-sticky-content');
 
-    if (!articleContent || !tocContainer || !tocNav) return;
+    // Exit if no ToC (server didn't render it)
+    if (!tocContainer || !tocNav) return;
 
-    // Get all H2 and H3 headings
-    const headings = articleContent.querySelectorAll('h2, h3');
+    // Get headings from article
+    const headings = articleContent ? articleContent.querySelectorAll('h2, h3') : [];
 
-    if (headings.length < 2) {
-        // Don't show TOC if less than 2 headings
-        return;
-    }
-
-    // Generate IDs for headings if they don't have one
-    const tocItems = [];
-
-    headings.forEach((heading, index) => {
-        if (!heading.id) {
-            heading.id = `section-${index + 1}`;
-        }
-
-        tocItems.push({
-            id: heading.id,
-            text: heading.textContent,
-            level: heading.tagName.toLowerCase(),
-        });
-    });
-
-    // Build TOC HTML
-    const tocHTML = buildTocHTML(tocItems);
-    tocNav.innerHTML = tocHTML;
-
-    // Show TOC container
-    tocContainer.classList.remove('hidden');
+    if (headings.length < 2) return;
 
     // Initialize toggle collapse/expand for main ToC
     if (tocToggle && tocToggleIcon) {
@@ -63,32 +43,8 @@ export function initTableOfContents() {
 
     // Initialize sticky ToC
     if (stickyToc && stickyToggle && stickyContent && tocWrapper) {
-        initStickyToc(tocWrapper, stickyToc, stickyToggle, stickyIcon, stickyContent, tocHTML);
+        initStickyToc(tocWrapper, stickyToc, stickyToggle, stickyIcon, stickyContent);
     }
-}
-
-/**
- * Build TOC HTML structure
- */
-function buildTocHTML(items) {
-    let html = '<ul class="space-y-1">';
-
-    items.forEach(item => {
-        const indent = item.level === 'h3' ? 'pl-4' : '';
-
-        html += `
-            <li class="${indent}">
-                <a href="#${item.id}"
-                   class="toc-link"
-                   data-target="${item.id}">
-                    ${item.text}
-                </a>
-            </li>
-        `;
-    });
-
-    html += '</ul>';
-    return html;
 }
 
 /**
@@ -146,13 +102,16 @@ function initActiveHighlighting(headings, tocNav, stickyContent) {
 
         // Update sticky ToC if exists
         if (stickyContent) {
-            const stickyLinks = stickyContent.querySelectorAll('.toc-link');
-            stickyLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('data-target') === targetId) {
-                    link.classList.add('active');
-                }
-            });
+            const stickyNav = stickyContent.querySelector('.toc-nav');
+            if (stickyNav) {
+                const stickyLinks = stickyNav.querySelectorAll('.toc-link');
+                stickyLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-target') === targetId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
         }
     };
 
@@ -186,12 +145,13 @@ function initActiveHighlighting(headings, tocNav, stickyContent) {
 /**
  * Initialize sticky ToC bar
  */
-function initStickyToc(tocWrapper, stickyToc, stickyToggle, stickyIcon, stickyContent, tocHTML) {
-    // Copy ToC content to sticky
-    stickyContent.innerHTML = tocHTML;
+function initStickyToc(tocWrapper, stickyToc, stickyToggle, stickyIcon, stickyContent) {
+    const stickyNav = stickyContent.querySelector('.toc-nav');
 
     // Initialize smooth scroll for sticky ToC
-    initSmoothScroll(stickyContent);
+    if (stickyNav) {
+        initSmoothScroll(stickyNav);
+    }
 
     // Toggle expand/collapse for sticky ToC
     stickyToggle.addEventListener('click', () => {
