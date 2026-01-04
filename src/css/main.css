@@ -314,16 +314,16 @@
 @layer components {
   /* Widget styles */
   .widget {
-    @apply pb-6 border-b border-gray-200 last:border-b-0 last:pb-0;
+    @apply pb-6 last:pb-0;
   }
 
   .widget-title {
-    @apply font-semibold text-gray-900 mb-4 text-lg;
+    @apply font-semibold text-gray-900 mb-4 text-base;
   }
 
-  /* Sidebar separator from main content */
+  /* Sidebar styles */
   .sidebar {
-    @apply lg:border-l lg:border-gray-200 lg:pl-8;
+    @apply text-sm;
   }
 
   /* Sidebar category list */
