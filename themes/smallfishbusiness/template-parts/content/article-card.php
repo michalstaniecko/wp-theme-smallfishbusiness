@@ -8,7 +8,7 @@
 ?>
 <article <?php post_class( 'group' ); ?>>
 	<!-- Featured Image -->
-	<div class="mb-4 overflow-hidden">
+	<div class="mb-4 rounded-lg overflow-hidden">
 		<a href="<?php the_permalink(); ?>" class="block aspect-video relative bg-gray-100 no-underline">
 			<?php if ( has_post_thumbnail() ) : ?>
 				<?php the_post_thumbnail( 'large', [
