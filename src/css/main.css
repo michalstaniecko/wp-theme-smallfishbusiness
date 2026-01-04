@@ -314,7 +314,7 @@
 @layer components {
   /* Widget styles */
   .widget {
-    @apply bg-white rounded-lg p-6 shadow-sm;
+    @apply bg-gray-50 rounded-lg p-6;
   }
 
   .widget-title {
