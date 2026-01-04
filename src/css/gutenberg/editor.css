@@ -21,8 +21,29 @@
    Post Title
    ========================================================================== */
 
+/* Title wrapper in post editor */
+.edit-post-visual-editor__post-title-wrapper {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    @apply mb-8 px-6;
+}
+
+.edit-post-visual-editor__post-title-wrapper .editor-post-title {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 .editor-post-title__input {
     @apply text-3xl font-bold text-gray-900;
+}
+
+/* Post title block in editor */
+.editor-styles-wrapper h1.wp-block-post-title {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ==========================================================================
@@ -66,9 +87,10 @@
    ========================================================================== */
 
 .editor-styles-wrapper .wp-block-post-content > .wp-block {
-    max-width: 720px;
+    max-width: var(--wp--style--global--content-size, 800px);
     margin-left: auto;
     margin-right: auto;
+    @apply px-6;
 }
 
 .editor-styles-wrapper .wp-block-post-content > .wp-block.alignwide {

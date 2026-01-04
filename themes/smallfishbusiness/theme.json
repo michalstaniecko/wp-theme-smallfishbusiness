@@ -4,7 +4,7 @@
   "settings": {
     "appearanceTools": true,
     "layout": {
-      "contentSize": "768px",
+      "contentSize": "800px",
       "wideSize": "1200px"
     },
     "spacing": {
@@ -147,6 +147,13 @@
       "core/separator": {
         "color": {
           "background": "var(--wp--preset--color--gray-200)"
+        }
+      },
+      "core/post-title": {
+        "spacing": {
+          "margin": {
+            "bottom": "2rem"
+          }
         }
       }
     }
