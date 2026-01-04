@@ -6,7 +6,7 @@
  */
 ?>
 
-<aside id="secondary" class="sidebar lg:sticky lg:top-24 space-y-6">
+<aside id="secondary" class="sidebar lg:sticky lg:top-24 space-y-10">
     <?php if ( is_active_sidebar( 'sidebar-main' ) ) : ?>
         <?php dynamic_sidebar( 'sidebar-main' ); ?>
     <?php else : ?>

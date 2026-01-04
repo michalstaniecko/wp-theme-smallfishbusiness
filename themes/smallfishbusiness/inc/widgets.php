@@ -29,9 +29,7 @@ class SFB_About_Widget extends WP_Widget {
             <?php endif; ?>
 
             <?php if (!empty($instance['title'])) : ?>
-                <h3 class="font-semibold text-gray-900 mb-3">
-                    <?php echo esc_html($instance['title']); ?>
-                </h3>
+                <?php echo $args['before_title'] . esc_html($instance['title']) . $args['after_title']; ?>
             <?php endif; ?>
 
             <?php if (!empty($instance['text'])) : ?>
@@ -139,9 +137,7 @@ class SFB_Popular_Posts_Widget extends WP_Widget {
         echo $args['before_widget'];
         ?>
         <div>
-            <h3 class="font-semibold text-gray-900 mb-4">
-                <?php echo esc_html($title); ?>
-            </h3>
+            <?php echo $args['before_title'] . esc_html($title) . $args['after_title']; ?>
 
             <?php if ($posts->have_posts()) : ?>
                 <ul class="space-y-4">
@@ -251,9 +247,7 @@ class SFB_Categories_Widget extends WP_Widget {
         echo $args['before_widget'];
         ?>
         <div>
-            <h3 class="font-semibold text-gray-900 mb-4">
-                <?php echo esc_html($title); ?>
-            </h3>
+            <?php echo $args['before_title'] . esc_html($title) . $args['after_title']; ?>
 
             <?php if (!empty($categories)) : ?>
                 <ul class="space-y-2">

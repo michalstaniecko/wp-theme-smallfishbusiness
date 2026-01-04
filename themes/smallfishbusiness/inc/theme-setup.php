@@ -47,7 +47,7 @@ function sfb_widgets_init() {
         'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'smallfishbusiness' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title">',
+        'before_title'  => '<h3 class="widget-title widget-title--styled">',
         'after_title'   => '</h3>',
     ] );
 

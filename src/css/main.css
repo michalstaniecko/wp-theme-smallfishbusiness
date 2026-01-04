@@ -321,6 +321,18 @@
     @apply font-semibold text-gray-900 mb-4 text-base;
   }
 
+  .sidebar .widget {
+    @apply border-l-2 border-primary-600 pl-4 pb-0;
+  }
+
+  .sidebar .widget-title--styled,
+  .sidebar .widget_block .wp-block-heading {
+    @apply bg-primary-600 uppercase text-sm tracking-wider;
+    @apply py-2.5 px-4 mb-4 -ml-4;
+    color: #fff !important;
+    font-weight: 600 !important;
+  }
+
   /* Sidebar styles */
   .sidebar {
     @apply text-sm;
