@@ -74,6 +74,19 @@ get_header();
 						<span><?php sfb_reading_time(); ?></span>
 					</div>
 
+					<!-- Table of Contents (above article) -->
+					<div id="toc-wrapper" class="mb-8">
+						<div id="toc-container" class="hidden bg-gray-50 rounded-lg overflow-hidden">
+							<button id="toc-toggle" type="button" class="w-full flex items-center justify-between p-4 hover:bg-gray-100 transition-colors cursor-pointer">
+								<span class="font-semibold text-gray-900"><?php esc_html_e( 'Table of Contents', 'smallfishbusiness' ); ?></span>
+								<svg id="toc-toggle-icon" class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							<nav id="toc" class="px-4 pb-4 text-sm"></nav>
+						</div>
+					</div>
+
 					<!-- Content -->
 					<div class="prose prose-lg max-w-none">
 						<?php the_content(); ?>
@@ -146,23 +159,38 @@ get_header();
 				<?php endwhile; ?>
 			</article>
 
-			<!-- Sidebar with TOC -->
+			<!-- Sidebar -->
 			<div class="lg:col-span-1">
 				<div class="lg:sticky lg:top-24 space-y-8">
-					<!-- Table of Contents (will be populated by JS in Phase 6) -->
-					<div id="toc-container" class="hidden bg-gray-50 rounded-lg p-6">
-						<h3 class="font-semibold text-gray-900 mb-4">
-							<?php esc_html_e( 'Table of Contents', 'smallfishbusiness' ); ?>
-						</h3>
-						<nav id="toc" class="text-sm"></nav>
-					</div>
-
 					<?php get_sidebar(); ?>
 				</div>
 			</div>
 		</div>
 	</div>
+
 </main>
+
+<!-- Sticky ToC (appears when scrolled past main ToC) -->
+<div id="toc-sticky" class="fixed top-20 left-0 right-0 z-40 hidden">
+	<div class="bg-white border-b border-gray-200 shadow-sm">
+		<div class="container-fluid">
+			<div id="toc-sticky-container" class="py-2">
+				<button id="toc-sticky-toggle" type="button" class="w-full flex items-center justify-between py-2 hover:bg-gray-50 transition-colors cursor-pointer rounded">
+					<span class="flex items-center gap-2 text-sm font-medium text-gray-700">
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+						</svg>
+						<?php esc_html_e( 'Table of Contents', 'smallfishbusiness' ); ?>
+					</span>
+					<svg id="toc-sticky-icon" class="w-4 h-4 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+					</svg>
+				</button>
+				<nav id="toc-sticky-content" class="hidden text-sm py-2 max-h-60 overflow-y-auto"></nav>
+			</div>
+		</div>
+	</div>
+</div>
 
 <?php
 get_footer();
