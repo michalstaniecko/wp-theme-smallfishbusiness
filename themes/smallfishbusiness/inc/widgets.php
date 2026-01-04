@@ -21,7 +21,7 @@ class SFB_About_Widget extends WP_Widget {
     public function widget($args, $instance) {
         echo $args['before_widget'];
         ?>
-        <div class="bg-gray-50 rounded-lg p-6">
+        <div>
             <?php if (!empty($instance['image'])) : ?>
                 <img src="<?php echo esc_url($instance['image']); ?>"
                      alt="<?php echo esc_attr($instance['title'] ?? ''); ?>"
@@ -138,7 +138,7 @@ class SFB_Popular_Posts_Widget extends WP_Widget {
 
         echo $args['before_widget'];
         ?>
-        <div class="bg-gray-50 rounded-lg p-6">
+        <div>
             <h3 class="font-semibold text-gray-900 mb-4">
                 <?php echo esc_html($title); ?>
             </h3>
@@ -250,7 +250,7 @@ class SFB_Categories_Widget extends WP_Widget {
 
         echo $args['before_widget'];
         ?>
-        <div class="bg-gray-50 rounded-lg p-6">
+        <div>
             <h3 class="font-semibold text-gray-900 mb-4">
                 <?php echo esc_html($title); ?>
             </h3>

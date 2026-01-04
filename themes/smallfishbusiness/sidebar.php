@@ -11,8 +11,8 @@
         <?php dynamic_sidebar( 'sidebar-main' ); ?>
     <?php else : ?>
         <!-- Default content if no widgets assigned -->
-        <div class="widget bg-gray-50 rounded-lg p-6">
-            <h3 class="widget-title font-semibold text-gray-900 mb-4">
+        <div class="widget">
+            <h3 class="widget-title">
                 <?php esc_html_e( 'About', 'smallfishbusiness' ); ?>
             </h3>
             <p class="text-gray-600 text-sm leading-relaxed">
@@ -20,8 +20,8 @@
             </p>
         </div>
 
-        <div class="widget bg-gray-50 rounded-lg p-6">
-            <h3 class="widget-title font-semibold text-gray-900 mb-4">
+        <div class="widget">
+            <h3 class="widget-title">
                 <?php esc_html_e( 'Categories', 'smallfishbusiness' ); ?>
             </h3>
             <ul class="space-y-2 text-sm">
