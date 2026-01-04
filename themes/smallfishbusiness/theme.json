@@ -48,7 +48,7 @@
       "customFontSize": false,
       "fontFamilies": [
         {
-          "fontFamily": "'Inter', system-ui, sans-serif",
+          "fontFamily": "'Montserrat', system-ui, sans-serif",
           "name": "Sans",
           "slug": "sans"
         },
@@ -93,7 +93,7 @@
       },
       "heading": {
         "typography": {
-          "fontWeight": "700",
+          "fontWeight": "500",
           "lineHeight": "1.25"
         },
         "color": {
