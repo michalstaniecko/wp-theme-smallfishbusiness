@@ -15,9 +15,9 @@ get_header();
 		<!-- Breadcrumbs -->
 		<?php get_template_part( 'template-parts/components/breadcrumbs' ); ?>
 
-		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+		<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 			<!-- Main Content -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'lg:col-span-2' ); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class( 'lg:col-span-3' ); ?>>
 				<?php
 				while ( have_posts() ) :
 					the_post();

@@ -14,9 +14,9 @@ get_header();
 	<div class="container-fluid py-8">
 		<h1 class="sr-only"><?php bloginfo( 'name' ); ?></h1>
 
-		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+		<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 			<!-- Main Content -->
-			<div class="lg:col-span-2">
+			<div class="lg:col-span-3">
 				<?php
 				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 				$args  = [

@@ -13,9 +13,9 @@ get_header();
 
 <main id="primary" class="site-main">
     <div class="container-fluid py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <!-- Main Content -->
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-3">
                 <?php if ( have_posts() ) : ?>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
                         <?php

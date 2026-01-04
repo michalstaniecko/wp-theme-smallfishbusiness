@@ -101,15 +101,15 @@
 /* Responsive layout components */
 @layer components {
 
-  /* Main grid: 1 column on mobile, 3 columns on desktop */
+  /* Main grid: 1 column on mobile, 4 columns on desktop (3/4 + 1/4) */
   .main-grid {
     @apply grid grid-cols-1 gap-8;
-    @apply lg:grid-cols-3;
+    @apply lg:grid-cols-4;
   }
 
   /* Main content area */
   .main-content {
-    @apply lg:col-span-2;
+    @apply lg:col-span-3;
   }
 
   /* Sidebar area */
