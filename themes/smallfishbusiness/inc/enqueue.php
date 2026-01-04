@@ -7,16 +7,22 @@
 
 /**
  * Check if Vite dev server is running.
+ * Uses host.docker.internal for Docker environments.
  *
  * @return bool
  */
 function sfb_is_vite_dev_server_running() {
     $vite_port = 5173;
-    $handle    = @fsockopen( 'localhost', $vite_port, $errno, $errstr, 0.1 );
 
-    if ( $handle ) {
-        fclose( $handle );
-        return true;
+    // Try host.docker.internal first (Docker on macOS/Windows)
+    $hosts_to_try = [ 'host.docker.internal', 'localhost' ];
+
+    foreach ( $hosts_to_try as $host ) {
+        $handle = @fsockopen( $host, $vite_port, $errno, $errstr, 0.3 );
+        if ( $handle ) {
+            fclose( $handle );
+            return true;
+        }
     }
 
     return false;
