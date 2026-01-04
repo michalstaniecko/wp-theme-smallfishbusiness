@@ -27,15 +27,11 @@
             <div class="flex items-center justify-between h-16 lg:h-20">
                 <!-- Logo -->
                 <div class="site-branding flex-shrink-0">
-                    <?php if ( has_custom_logo() ) : ?>
-                        <?php the_custom_logo(); ?>
-                    <?php else : ?>
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center">
-                            <span class="text-xl font-bold text-gray-900 hover:text-primary-600 transition-colors">
-                                <?php bloginfo( 'name' ); ?>
-                            </span>
-                        </a>
-                    <?php endif; ?>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/img/logo-small-fish-business.png' ); ?>"
+                             alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
+                             class="h-10 lg:h-12 w-auto">
+                    </a>
                 </div>
 
                 <!-- Desktop Navigation -->

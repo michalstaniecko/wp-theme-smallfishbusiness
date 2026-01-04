@@ -24,8 +24,8 @@ get_header();
 					?>
 
 					<!-- Featured Image -->
-					<?php if ( has_post_thumbnail() ) : ?>
-						<div class="aspect-video rounded-lg overflow-hidden mb-6">
+					<div class="aspect-video rounded-lg overflow-hidden mb-6">
+						<?php if ( has_post_thumbnail() ) : ?>
 							<?php
 							the_post_thumbnail(
 								'large',
@@ -35,8 +35,15 @@ get_header();
 								]
 							);
 							?>
-						</div>
-					<?php endif; ?>
+						<?php else : ?>
+							<!-- Placeholder Logo -->
+							<div class="w-full h-full flex items-center justify-center bg-gray-100">
+								<img src="<?php echo esc_url( get_template_directory_uri() . '/img/logo-small-fish-business.png' ); ?>"
+								     alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
+								     class="max-w-[50%] max-h-[50%] object-contain opacity-40">
+							</div>
+						<?php endif; ?>
+					</div>
 
 					<!-- Category Badge -->
 					<?php
