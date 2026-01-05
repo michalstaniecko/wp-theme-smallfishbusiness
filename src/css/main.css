@@ -695,7 +695,14 @@
 
   /* Sticky ToC */
   #toc-sticky {
-    @apply fixed top-0 left-0 right-0 z-40;
+    @apply fixed left-0 right-0 z-40;
+    top: 4rem; /* Below header (h-16) */
+  }
+
+  @media (min-width: 64rem) {
+    #toc-sticky {
+      top: 5rem; /* Below larger header (lg:h-20) */
+    }
   }
 
   @keyframes slideDown {
