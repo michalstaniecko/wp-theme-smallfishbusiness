@@ -18,7 +18,6 @@ function openItem( item ) {
 
 	item.classList.add( 'is-open' );
 	header.setAttribute( 'aria-expanded', 'true' );
-	content.style.maxHeight = content.scrollHeight + 'px';
 }
 
 function closeItem( item ) {
@@ -31,7 +30,6 @@ function closeItem( item ) {
 
 	item.classList.remove( 'is-open' );
 	header.setAttribute( 'aria-expanded', 'false' );
-	content.style.maxHeight = null;
 }
 
 function toggleItem( item, allItems ) {

@@ -45,8 +45,10 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	</div>
 
 	<div class="sfb-faq-item__content">
-		<div class="sfb-faq-item__answer">
-			<?php echo $content; ?>
+		<div>
+			<div class="sfb-faq-item__answer">
+				<?php echo $content; ?>
+			</div>
 		</div>
 	</div>
 </div>

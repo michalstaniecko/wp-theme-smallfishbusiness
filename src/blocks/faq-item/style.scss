@@ -54,13 +54,16 @@
 }
 
 .sfb-faq-item__content {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 0.3s ease;
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease;
+	& > div {
+		overflow: hidden;
+	}
 }
 
 .sfb-faq-item.is-open .sfb-faq-item__content {
-	/* no background - minimalist design */
+	grid-template-rows: 1fr;
 }
 
 .sfb-faq-item__answer {

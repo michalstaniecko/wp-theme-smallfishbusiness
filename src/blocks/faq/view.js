@@ -19,7 +19,6 @@ function openItem( item ) {
 	item.classList.add( 'is-open' );
 	header.setAttribute( 'aria-expanded', 'true' );
 	content.setAttribute( 'aria-hidden', 'false' );
-	content.style.maxHeight = content.scrollHeight + 'px';
 }
 
 /**
@@ -38,7 +37,6 @@ function closeItem( item ) {
 	item.classList.remove( 'is-open' );
 	header.setAttribute( 'aria-expanded', 'false' );
 	content.setAttribute( 'aria-hidden', 'true' );
-	content.style.maxHeight = '0';
 }
 
 /**
