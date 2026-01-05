@@ -33,8 +33,10 @@ $arrow_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=
 		</div>
 	</div>
 	<div class="sfb-accordion-item__content">
-		<div class="sfb-accordion-item__inner">
-			<?php echo $content; ?>
+		<div>
+			<div class="sfb-accordion-item__inner">
+				<?php echo $content; ?>
+			</div>
 		</div>
 	</div>
 </div>
