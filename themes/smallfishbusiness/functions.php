@@ -17,6 +17,9 @@ require_once get_template_directory() . '/inc/gutenberg.php';
 // Block patterns
 require_once get_template_directory() . '/inc/block-patterns.php';
 
+// Custom Gutenberg blocks
+require_once get_template_directory() . '/inc/blocks.php';
+
 // Helper functions
 require_once get_template_directory() . '/inc/helpers.php';
 

@@ -5,7 +5,7 @@
     "dev": "vite",
     "build:vite": "vite build",
     "watch": "vite build --watch",
-    "build:blocks": "wp-scripts build --source-path=src/blocks --output-path=themes/smallfishbusiness/blocks --webpack-copy-php",
+    "build:blocks": "wp-scripts build --source-path=src/blocks --output-path=themes/smallfishbusiness/blocks --webpack-copy-php --blocks-manifest",
     "build": "npm run build:vite && npm run build:blocks"
   },
   "dependencies": {
