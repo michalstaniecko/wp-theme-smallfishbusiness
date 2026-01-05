@@ -65,13 +65,16 @@ function initAccordion( container ) {
 			return;
 		}
 
+		// Check if item is already open (set by PHP for first item)
+		const isOpen = item.classList.contains( 'is-open' );
+
 		// Set up ARIA attributes
 		const itemId = `accordion-item-${ index }`;
 		const contentId = `accordion-content-${ index }`;
 
 		header.setAttribute( 'id', itemId );
 		header.setAttribute( 'aria-controls', contentId );
-		header.setAttribute( 'aria-expanded', 'false' );
+		header.setAttribute( 'aria-expanded', isOpen ? 'true' : 'false' );
 		header.setAttribute( 'role', 'button' );
 		header.setAttribute( 'tabindex', '0' );
 
@@ -92,11 +95,6 @@ function initAccordion( container ) {
 			}
 		} );
 	} );
-
-	// Open first item by default
-	if ( items.length > 0 ) {
-		openItem( items[ 0 ] );
-	}
 }
 
 // Initialize all accordions on page load

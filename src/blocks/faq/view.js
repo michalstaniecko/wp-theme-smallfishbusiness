@@ -61,11 +61,6 @@ function initFAQ() {
 	containers.forEach( ( container ) => {
 		const items = container.querySelectorAll( '.sfb-faq-item' );
 
-		// Open first item by default
-		if ( items.length > 0 ) {
-			openItem( items[ 0 ] );
-		}
-
 		items.forEach( ( item, index ) => {
 			const header = item.querySelector( '.sfb-faq-item__header' );
 
@@ -73,12 +68,16 @@ function initFAQ() {
 				return;
 			}
 
+			// Check if item is already open (set by PHP for first item)
+			const isOpen = item.classList.contains( 'is-open' );
+
 			// Setup accessibility attributes
 			const itemId = `faq-item-${ container.id || 'default' }-${ index }`;
 			const contentId = `${ itemId }-content`;
 
 			header.setAttribute( 'id', itemId );
 			header.setAttribute( 'aria-controls', contentId );
+			header.setAttribute( 'aria-expanded', isOpen ? 'true' : 'false' );
 			header.setAttribute( 'role', 'button' );
 			header.setAttribute( 'tabindex', '0' );
 
@@ -87,6 +86,7 @@ function initFAQ() {
 				content.setAttribute( 'id', contentId );
 				content.setAttribute( 'role', 'region' );
 				content.setAttribute( 'aria-labelledby', itemId );
+				content.setAttribute( 'aria-hidden', isOpen ? 'false' : 'true' );
 			}
 
 			// Click handler

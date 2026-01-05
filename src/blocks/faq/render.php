@@ -59,6 +59,14 @@ $faq_schema = array(
 	'@type'      => 'FAQPage',
 	'mainEntity' => $schema_items,
 );
+
+// Add is-open class to first FAQ item (limit 1 ensures only first match)
+$content = preg_replace(
+	'/class="([^"]*sfb-faq-item[^"]*)"/',
+	'class="$1 is-open"',
+	$content,
+	1 // Only replace first occurrence
+);
 ?>
 
 <div <?php echo $wrapper_attributes; ?>>

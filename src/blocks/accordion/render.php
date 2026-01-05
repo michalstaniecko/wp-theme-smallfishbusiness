@@ -49,6 +49,14 @@ $schema = array(
 	'mainEntity' => $faq_items,
 );
 
+// Add is-open class to first accordion item (limit 1 ensures only first match)
+$content = preg_replace(
+	'/class="([^"]*sfb-accordion-item[^"]*)"/',
+	'class="$1 is-open"',
+	$content,
+	1 // Only replace first occurrence
+);
+
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'class' => 'sfb-accordion' ) ); ?> id="<?php echo esc_attr( $accordion_id ); ?>">
 	<?php echo $content; ?>
