@@ -1,0 +1,61 @@
+/**
+ * Editor styles for Comparison Table Embed block.
+ *
+ * @package SFB\ComparisonTables
+ */
+
+.wp-block-sfb-ct-embed {
+	.components-placeholder {
+		min-height: 200px;
+	}
+
+	.components-combobox-control {
+		min-width: 300px;
+	}
+}
+
+.sfb-ct-embed-preview {
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	overflow: hidden;
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 12px 16px;
+		background: #f6f7f7;
+		border-bottom: 1px solid #e0e0e0;
+		font-weight: 500;
+
+		.dashicons {
+			color: #757575;
+		}
+
+		span:last-of-type {
+			flex: 1;
+		}
+	}
+
+	&__edit {
+		font-size: 12px;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__empty {
+		padding: 24px;
+		text-align: center;
+		color: #757575;
+	}
+
+	// Override some frontend styles for editor context.
+	.sfb-ct {
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+	}
+}

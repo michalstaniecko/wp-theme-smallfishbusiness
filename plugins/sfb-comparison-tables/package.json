@@ -1,0 +1,18 @@
+{
+	"name": "sfb-comparison-tables",
+	"version": "1.0.0",
+	"description": "Comparison tables for products and subscription plans",
+	"author": "Small Fish Business",
+	"license": "GPL-2.0+",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build --source-path=src/blocks --output-path=build --webpack-copy-php --blocks-manifest",
+		"start": "wp-scripts start --source-path=src/blocks --output-path=build --webpack-copy-php --blocks-manifest",
+		"lint:js": "wp-scripts lint-js src/",
+		"lint:css": "wp-scripts lint-style src/",
+		"format": "wp-scripts format src/"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^31.2.0"
+	}
+}

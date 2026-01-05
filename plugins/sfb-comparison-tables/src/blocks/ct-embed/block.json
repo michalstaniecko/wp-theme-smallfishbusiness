@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sfb/ct-embed",
+	"version": "1.0.0",
+	"title": "Comparison Table",
+	"category": "widgets",
+	"icon": "editor-table",
+	"description": "Embed a comparison table for products or subscription plans.",
+	"keywords": [ "comparison", "table", "pricing", "plans", "products" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"tableId": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"textdomain": "sfb-comparison-tables",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

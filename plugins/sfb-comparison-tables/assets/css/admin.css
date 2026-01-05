@@ -1,0 +1,267 @@
+/**
+ * Admin styles for comparison table meta boxes.
+ *
+ * @package SFB\ComparisonTables
+ */
+
+/* Repeater container */
+.sfb-ct-repeater {
+	margin-top: 12px;
+}
+
+.sfb-ct-repeater__items {
+	margin-bottom: 12px;
+}
+
+/* Repeater item */
+.sfb-ct-repeater__item {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	margin-bottom: 12px;
+}
+
+.sfb-ct-repeater__item-header {
+	display: flex;
+	align-items: center;
+	padding: 10px 12px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #c3c4c7;
+	cursor: pointer;
+	gap: 8px;
+}
+
+.sfb-ct-repeater__item-handle {
+	cursor: move;
+	color: #787c82;
+}
+
+.sfb-ct-repeater__item-title {
+	flex: 1;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.sfb-ct-repeater__item-toggle,
+.sfb-ct-repeater__item-remove {
+	background: none;
+	border: none;
+	padding: 4px;
+	cursor: pointer;
+	color: #787c82;
+	line-height: 1;
+}
+
+.sfb-ct-repeater__item-toggle:hover {
+	color: #2271b1;
+}
+
+.sfb-ct-repeater__item-remove:hover {
+	color: #d63638;
+}
+
+.sfb-ct-repeater__item-toggle .dashicons {
+	transition: transform 0.2s ease;
+}
+
+.sfb-ct-repeater__item[aria-expanded="false"] .sfb-ct-repeater__item-toggle .dashicons {
+	transform: rotate(180deg);
+}
+
+.sfb-ct-repeater__item-content {
+	padding: 16px;
+}
+
+.sfb-ct-repeater__item.is-collapsed .sfb-ct-repeater__item-content {
+	display: none;
+}
+
+/* Add button */
+.sfb-ct-repeater__add {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+/* Field rows */
+.sfb-ct-field-row {
+	display: flex;
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+.sfb-ct-field-row:last-child {
+	margin-bottom: 0;
+}
+
+.sfb-ct-field {
+	flex: 1;
+}
+
+.sfb-ct-field--wide {
+	flex: 2;
+}
+
+.sfb-ct-field label {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: 500;
+	color: #1d2327;
+}
+
+.sfb-ct-field input[type="text"],
+.sfb-ct-field input[type="url"],
+.sfb-ct-field select {
+	width: 100%;
+}
+
+.sfb-ct-checkbox-label {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: normal !important;
+	margin-top: 24px;
+}
+
+/* Notice */
+.sfb-ct-notice {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px;
+	background: #f0f6fc;
+	border-left: 4px solid #72aee6;
+	margin-bottom: 16px;
+}
+
+.sfb-ct-notice .dashicons {
+	color: #72aee6;
+}
+
+/* Section specific styles */
+.sfb-ct-section-header {
+	background: #dcdcde;
+}
+
+.sfb-ct-section-rows {
+	margin-top: 16px;
+	padding-top: 16px;
+	border-top: 1px solid #dcdcde;
+}
+
+.sfb-ct-section-rows h4 {
+	margin: 0 0 12px 0;
+	font-size: 13px;
+	color: #50575e;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+/* Row item */
+.sfb-ct-rows-container {
+	margin-bottom: 12px;
+}
+
+.sfb-ct-row {
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	margin-bottom: 8px;
+	padding: 12px;
+}
+
+.sfb-ct-row__header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 12px;
+}
+
+.sfb-ct-row__handle {
+	cursor: move;
+	color: #787c82;
+}
+
+.sfb-ct-row__feature {
+	flex: 1;
+}
+
+.sfb-ct-row__feature input {
+	width: 100%;
+}
+
+.sfb-ct-row__remove {
+	background: none;
+	border: none;
+	padding: 4px;
+	cursor: pointer;
+	color: #787c82;
+	line-height: 1;
+}
+
+.sfb-ct-row__remove:hover {
+	color: #d63638;
+}
+
+/* Cell values */
+.sfb-ct-row__values {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.sfb-ct-cell {
+	flex: 1;
+	min-width: 150px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 8px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.sfb-ct-cell__type {
+	width: 100%;
+}
+
+.sfb-ct-cell__value,
+.sfb-ct-cell__url {
+	width: 100%;
+}
+
+/* Add row button */
+.sfb-ct-add-row {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+/* Dragging state */
+.sfb-ct-repeater__item.is-dragging,
+.sfb-ct-row.is-dragging {
+	opacity: 0.5;
+	border-style: dashed;
+}
+
+.sfb-ct-repeater__item.drag-over,
+.sfb-ct-row.drag-over {
+	border-color: #2271b1;
+	border-style: dashed;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+	.sfb-ct-field-row {
+		flex-direction: column;
+	}
+
+	.sfb-ct-row__values {
+		flex-direction: column;
+	}
+
+	.sfb-ct-cell {
+		min-width: 100%;
+	}
+}

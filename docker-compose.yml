@@ -15,6 +15,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
       - ./themes/smallfishbusiness:/var/www/html/wp-content/themes/smallfishbusiness
+      - ./plugins/sfb-comparison-tables:/var/www/html/wp-content/plugins/sfb-comparison-tables
     depends_on:
       - db
     restart: unless-stopped
@@ -43,6 +44,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
       - ./themes/smallfishbusiness:/var/www/html/wp-content/themes/smallfishbusiness
+      - ./plugins/sfb-comparison-tables:/var/www/html/wp-content/plugins/sfb-comparison-tables
       - ./scripts:/scripts
     user: "33:33"
     entrypoint: ["wp", "--allow-root"]
