@@ -7,3 +7,4 @@ themes/smallfishbusiness/build/
 .env
 !.env.example
 dist
+themes/smallfishbusiness/blocks
