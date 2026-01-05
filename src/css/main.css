@@ -464,3 +464,38 @@
     max-width: 1440px;
   }
 }
+
+/* =================================================================
+   Landing Page - Box Layout
+   ================================================================= */
+@layer components {
+  /* Main area with gray background */
+  .landing-page-main {
+    @apply bg-gray-100;
+  }
+
+  /* Gray background for entire content area */
+  body.page-template-page-landing .site-content {
+    @apply bg-gray-100;
+  }
+
+  /* Centered container with padding */
+  .landing-page-container {
+    @apply w-full mx-auto px-4;
+    @apply sm:px-6;
+    @apply lg:px-8;
+    max-width: 1000px;
+  }
+
+  /* White content box with shadow */
+  .landing-page-box {
+    @apply bg-white rounded-lg shadow-lg;
+    @apply px-6 py-8;
+    @apply sm:px-8 sm:py-10;
+    @apply md:px-12 md:py-12;
+    @apply lg:px-16 lg:py-16;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
