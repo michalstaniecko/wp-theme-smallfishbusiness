@@ -1,0 +1,57 @@
+/**
+ * Editor styles for accordion item block.
+ * Schematic styling for the editor interface.
+ */
+
+.wp-block-sfb-accordion-item {
+	border: 1px solid #e5e7eb;
+	border-left: 3px solid #810000;
+	background-color: #fff;
+	margin-bottom: 0;
+}
+
+.sfb-accordion-item__header-editor {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 1.25rem;
+	background-color: #f9fafb;
+	border-bottom: 1px solid #e5e7eb;
+	gap: 1rem;
+}
+
+.sfb-accordion-item__title-editor {
+	flex: 1;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #111827;
+
+	&[data-is-placeholder-visible="true"] {
+		color: #9ca3af;
+		font-weight: 400;
+	}
+}
+
+.sfb-accordion-item__icon-editor {
+	flex-shrink: 0;
+	color: #6b7280;
+	font-size: 0.875rem;
+	user-select: none;
+}
+
+.sfb-accordion-item__content-editor {
+	padding: 1rem 1.25rem;
+
+	.block-editor-inner-blocks {
+		> .block-editor-block-list__layout {
+			> * {
+				margin-top: 0;
+				margin-bottom: 0.75rem;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

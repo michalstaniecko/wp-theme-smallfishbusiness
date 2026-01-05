@@ -1,0 +1,29 @@
+/**
+ * Frontend styles for FAQ block
+ */
+
+.wp-block-sfb-faq {
+	border: 1px solid #e5e7eb;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	background: #fff;
+	margin-bottom: 2rem;
+}
+
+.sfb-faq__header {
+	background-color: #f3f4f6;
+	padding: 1.25rem 1.5rem;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.sfb-faq__title {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #111827;
+	line-height: 1.4;
+}
+
+.sfb-faq__items {
+	/* Container for FAQ items */
+}

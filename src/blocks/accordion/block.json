@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sfb/accordion",
+	"version": "0.1.0",
+	"title": "Accordion",
+	"category": "widgets",
+	"icon": "list-view",
+	"description": "Accordion container with collapsible items.",
+	"keywords": ["faq", "collapse", "toggle"],
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"defaultOpenIndex": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"providesContext": {
+		"sfb/accordionId": "anchor"
+	},
+	"textdomain": "smallfishbusiness",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

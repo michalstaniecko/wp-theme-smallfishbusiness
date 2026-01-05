@@ -1,0 +1,17 @@
+/**
+ * Editor styles for accordion block.
+ * Minimal styling - keep it schematic.
+ */
+
+.wp-block-sfb-accordion {
+	border: 1px dashed #e5e7eb;
+	padding: 1rem;
+
+	.block-editor-inner-blocks {
+		> .block-editor-block-list__layout {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+	}
+}

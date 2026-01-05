@@ -1,0 +1,25 @@
+/**
+ * Editor-only styles for FAQ Item block
+ */
+
+.sfb-faq-item {
+	border: 1px solid #e5e7eb;
+	border-radius: 0.25rem;
+	margin-bottom: 1rem;
+	background: #fff;
+}
+
+.sfb-faq-item__question {
+	padding: 0.75rem;
+	background: #f9fafb;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.sfb-faq-item__question-text {
+	font-weight: 600;
+	color: #111827;
+}
+
+.sfb-faq-item__answer {
+	padding: 1rem;
+}

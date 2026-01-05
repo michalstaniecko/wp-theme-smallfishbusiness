@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sfb/accordion-item",
+	"version": "0.1.0",
+	"title": "Accordion Item",
+	"category": "widgets",
+	"icon": "arrow-down-alt2",
+	"description": "Single accordion item with title and content.",
+	"parent": ["sfb/accordion"],
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"usesContext": ["sfb/accordionId"],
+	"textdomain": "smallfishbusiness",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

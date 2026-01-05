@@ -1,0 +1,109 @@
+/**
+ * Frontend styles for FAQ Item block
+ */
+
+.sfb-faq-item {
+	border-bottom: 1px solid #e5e7eb;
+	transition: background-color 0.2s ease;
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.sfb-faq-item__header {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 1.25rem 1.5rem;
+	cursor: pointer;
+	user-select: none;
+	transition: background-color 0.2s ease;
+
+	&:hover {
+		background-color: #f9fafb;
+	}
+
+	&:focus {
+		outline: 2px solid #810000;
+		outline-offset: -2px;
+	}
+}
+
+.sfb-faq-item__number {
+	flex-shrink: 0;
+	font-weight: 600;
+	color: #374151;
+	font-size: 1rem;
+}
+
+.sfb-faq-item__question {
+	flex: 1;
+	margin: 0;
+	font-size: 1.125rem;
+	font-weight: 600;
+	color: #111827;
+	line-height: 1.5;
+}
+
+.sfb-faq-item__chevron {
+	flex-shrink: 0;
+	color: #810000;
+	transition: transform 0.3s ease;
+}
+
+.sfb-faq-item.is-open .sfb-faq-item__chevron {
+	transform: rotate(180deg);
+}
+
+.sfb-faq-item__content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease;
+}
+
+.sfb-faq-item.is-open .sfb-faq-item__content {
+	background-color: #f3f4f6;
+}
+
+.sfb-faq-item__answer {
+	padding: 1rem 1.5rem 1.5rem 3rem;
+	color: #374151;
+	line-height: 1.7;
+
+	p {
+		margin-top: 0;
+		margin-bottom: 1rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	ul,
+	ol {
+		margin-bottom: 1rem;
+		padding-left: 1.5rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	li {
+		margin-bottom: 0.5rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		color: #810000;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
