@@ -19,10 +19,14 @@ if ( ! empty( $block->inner_blocks ) ) {
 	foreach ( $block->inner_blocks as $index => $inner_block ) {
 		if ( 'sfb/accordion-item' === $inner_block->name ) {
 			$item_title = ! empty( $inner_block->attributes['title'] ) ? $inner_block->attributes['title'] : '';
-			$item_content = render_block( $inner_block );
 
-			// Extract plain text content for schema (remove HTML tags)
-			$plain_content = wp_strip_all_tags( $item_content );
+			// Get content from inner block's inner blocks (the answer content)
+			$plain_content = '';
+			if ( ! empty( $inner_block->inner_blocks ) ) {
+				foreach ( $inner_block->inner_blocks as $content_block ) {
+					$plain_content .= wp_strip_all_tags( $content_block->render() );
+				}
+			}
 
 			if ( ! empty( $item_title ) && ! empty( $plain_content ) ) {
 				$faq_items[] = array(
@@ -30,7 +34,7 @@ if ( ! empty( $block->inner_blocks ) ) {
 					'name'           => $item_title,
 					'acceptedAnswer' => array(
 						'@type' => 'Answer',
-						'text'  => $plain_content,
+						'text'  => trim( $plain_content ),
 					),
 				);
 			}
