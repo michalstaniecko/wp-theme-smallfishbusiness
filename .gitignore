@@ -6,3 +6,4 @@ themes/smallfishbusiness/build/
 # Environment
 .env
 !.env.example
+dist
