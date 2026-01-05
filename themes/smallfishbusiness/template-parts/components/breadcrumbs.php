@@ -84,25 +84,25 @@ $breadcrumbs = sfb_get_breadcrumbs();
 $count       = count( $breadcrumbs );
 ?>
 
-<nav aria-label="<?php esc_attr_e( 'Breadcrumb', 'smallfishbusiness' ); ?>" class="mb-6">
-    <ol class="flex items-center flex-wrap gap-2 text-sm text-gray-500">
+<nav aria-label="<?php esc_attr_e( 'Breadcrumb', 'smallfishbusiness' ); ?>" class="breadcrumbs">
+    <ol class="breadcrumbs__list">
         <?php foreach ( $breadcrumbs as $index => $crumb ) :
             $is_last = ( $index === $count - 1 );
         ?>
-            <li class="flex items-center">
+            <li class="breadcrumbs__item">
                 <?php if ( $index > 0 ) : ?>
-                    <svg class="w-4 h-4 mx-2 text-gray-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <svg class="breadcrumbs__separator" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
                     </svg>
                 <?php endif; ?>
 
                 <?php if ( $crumb['url'] && ! $is_last ) : ?>
-                    <a href="<?php echo esc_url( $crumb['url'] ); ?>" class="hover:text-primary-600 transition-colors">
+                    <a href="<?php echo esc_url( $crumb['url'] ); ?>" class="breadcrumbs__link">
                         <?php echo esc_html( $crumb['title'] ); ?>
                     </a>
                 <?php else : ?>
-                    <span class="text-gray-900 font-medium" aria-current="page">
-                        <?php echo esc_html( $crumb['title'] ); ?>
+                    <span class="breadcrumbs__current" aria-current="page">
+                        <?php echo esc_html( wp_trim_words( $crumb['title'], 8, '...' ) ); ?>
                     </span>
                 <?php endif; ?>
             </li>
