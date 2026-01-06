@@ -11,7 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 THEME_DIR="$PROJECT_DIR/themes/$THEME_NAME"
 DIST_DIR="$PROJECT_DIR/dist"
-VERSION=$(sed -n 's/^Version:[[:space:]]*\([0-9.]*\)/\1/p' "$THEME_DIR/style.css" 2>/dev/null || echo "1.0.0")
+VERSION=$(sed -n 's/^Version:[[:space:]]*\([0-9a-zA-Z.-]*\)/\1/p' "$THEME_DIR/style.css" 2>/dev/null || echo "1.0.0")
 ZIP_NAME="${THEME_NAME}-${VERSION}.zip"
 
 echo "=========================================="

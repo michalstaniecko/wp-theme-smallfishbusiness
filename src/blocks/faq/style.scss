@@ -1,32 +1,35 @@
 /**
- * Frontend styles for FAQ block
+ * FAQ Block - Editorial Minimalism
+ *
+ * Design principles:
+ * - Clean, borderless container
+ * - Subtle dividers between items
+ * - Typography-focused hierarchy
+ * - Refined micro-interactions
+ *
+ * Note: Uses CSS variables from main theme with fallbacks for block preview
  */
 
 .wp-block-sfb-faq {
-	border: 1px solid #e5e7eb;
-	border-radius: 0.5rem;
-	overflow: hidden;
-	background: #fff;
-	margin-bottom: 2rem;
+	margin-bottom: 2.5rem;
 }
 
-.sfb-faq__header {
-	padding: 1.25rem 1.5rem;
-	border-bottom: 1px solid #e5e7eb;
+.sfb-faq {
+	background: var(--color-surface-50, #fafaf9);
+	border-radius: 0.75rem;
+	overflow: hidden;
 }
 
 .sfb-faq__title {
 	margin: 0;
-	font-size: 1.25rem;
-	font-weight: 500;
-	color: #111827;
-	line-height: 1.4;
+	font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+	font-size: 1.375rem;
+	font-weight: 600;
+	color: var(--color-surface-900, #1c1917);
+	line-height: 1.3;
+	letter-spacing: -0.01em;
 
 	@media (min-width: 768px) {
 		font-size: 1.5rem;
 	}
-}
-
-.sfb-faq__items {
-	/* Container for FAQ items */
 }
