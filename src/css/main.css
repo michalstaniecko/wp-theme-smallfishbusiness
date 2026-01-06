@@ -102,8 +102,7 @@
   }
 
   body {
-    @apply font-sans text-surface-800 leading-relaxed;
-    background-color: #fafaf9;
+    @apply font-sans text-surface-800 leading-relaxed bg-surface-50;
   }
 
   /* Display headings - Editorial serif */
@@ -571,10 +570,6 @@
   /* Featured card variant */
   .article-card--featured {
     @apply lg:col-span-2;
-  }
-
-  .article-card--featured .article-card__image-wrapper {
-    @apply aspect-[16/9];
   }
 
   .article-card--featured .article-card__title {

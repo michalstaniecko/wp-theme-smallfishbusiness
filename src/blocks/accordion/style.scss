@@ -6,28 +6,9 @@
  * - Left border accent using primary color
  * - Smooth expand/collapse animations
  * - Clean typography hierarchy
+ *
+ * Note: Uses CSS variables from main theme with fallbacks for block preview
  */
-
-// Theme variables (fallbacks for block preview)
-:root {
-	--color-primary-500: #14b8a6;
-	--color-primary-600: #0097B2;
-	--color-primary-700: #0f766e;
-	--color-surface-50: #fafaf9;
-	--color-surface-100: #f5f5f4;
-	--color-surface-200: #e7e5e4;
-	--color-surface-300: #d6d3d1;
-	--color-surface-500: #78716c;
-	--color-surface-600: #57534e;
-	--color-surface-700: #44403c;
-	--color-surface-800: #292524;
-	--color-surface-900: #1c1917;
-	--font-display: 'Playfair Display', Georgia, serif;
-	--font-sans: 'DM Sans', system-ui, sans-serif;
-	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-	--duration-fast: 150ms;
-	--duration-normal: 300ms;
-}
 
 .wp-block-sfb-accordion {
 	margin-bottom: 2.5rem;
@@ -41,12 +22,12 @@
 
 .sfb-accordion-item {
 	position: relative;
-	background: var(--color-surface-50);
+	background: var(--color-surface-50, #fafaf9);
 	border-radius: 0.5rem;
 	overflow: hidden;
 	transition:
-		box-shadow var(--duration-normal) var(--ease-out-expo),
-		background-color var(--duration-fast) ease;
+		box-shadow var(--duration-normal, 300ms) var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)),
+		background-color var(--duration-fast, 150ms) ease;
 
 	// Left accent border
 	&::before {
@@ -56,15 +37,15 @@
 		top: 0;
 		bottom: 0;
 		width: 3px;
-		background: var(--color-primary-600);
+		background: var(--color-primary-600, #0097B2);
 		transform: scaleY(0);
 		transform-origin: top;
-		transition: transform var(--duration-normal) var(--ease-out-expo);
+		transition: transform var(--duration-normal, 300ms) var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
 		z-index: 1;
 	}
 
 	&:hover {
-		background: var(--color-surface-100);
+		background: var(--color-surface-100, #f5f5f4);
 	}
 
 	&:hover::before {
@@ -72,7 +53,7 @@
 	}
 
 	&.is-open {
-		background: #fff;
+		background: white;
 		box-shadow:
 			0 1px 3px rgba(0, 0, 0, 0.04),
 			0 4px 12px rgba(0, 0, 0, 0.03);
@@ -91,10 +72,10 @@
 	padding: 1rem 1.25rem;
 	cursor: pointer;
 	user-select: none;
-	transition: color var(--duration-fast) ease;
+	transition: color var(--duration-fast, 150ms) ease;
 
 	&:hover {
-		color: var(--color-primary-700);
+		color: var(--color-primary-700, #0f766e);
 	}
 
 	&:focus {
@@ -102,7 +83,7 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid var(--color-primary-500);
+		outline: 2px solid var(--color-primary-500, #14b8a6);
 		outline-offset: -2px;
 		border-radius: 0.375rem;
 	}
@@ -114,12 +95,12 @@
 	gap: 0.75rem;
 	flex: 1;
 	margin: 0;
-	font-family: var(--font-sans);
+	font-family: var(--font-sans, 'DM Sans', system-ui, sans-serif);
 	font-size: 1rem;
 	font-weight: 500;
-	color: var(--color-surface-800);
+	color: var(--color-surface-800, #292524);
 	line-height: 1.5;
-	transition: color var(--duration-fast) ease;
+	transition: color var(--duration-fast, 150ms) ease;
 
 	@media (min-width: 768px) {
 		font-size: 1.0625rem;
@@ -127,7 +108,7 @@
 
 	.sfb-accordion-item:hover &,
 	.sfb-accordion-item.is-open & {
-		color: var(--color-surface-900);
+		color: var(--color-surface-900, #1c1917);
 	}
 }
 
@@ -139,10 +120,10 @@
 	flex-shrink: 0;
 	width: 1.25rem;
 	height: 1.25rem;
-	color: var(--color-surface-500);
+	color: var(--color-surface-500, #78716c);
 	transition:
-		transform var(--duration-normal) var(--ease-out-expo),
-		color var(--duration-fast) ease;
+		transform var(--duration-normal, 300ms) var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)),
+		color var(--duration-fast, 150ms) ease;
 
 	svg {
 		width: 100%;
@@ -151,19 +132,19 @@
 	}
 
 	.sfb-accordion-item:hover & {
-		color: var(--color-primary-600);
+		color: var(--color-primary-600, #0097B2);
 	}
 
 	.sfb-accordion-item.is-open & {
 		transform: rotate(180deg);
-		color: var(--color-primary-600);
+		color: var(--color-primary-600, #0097B2);
 	}
 }
 
 .sfb-accordion-item__content {
 	display: grid;
 	grid-template-rows: 0fr;
-	transition: grid-template-rows var(--duration-normal) var(--ease-out-expo);
+	transition: grid-template-rows var(--duration-normal, 300ms) var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
 
 	> div {
 		overflow: hidden;
@@ -176,7 +157,7 @@
 
 .sfb-accordion-item__inner {
 	padding: 0 1.25rem 1.25rem 1.25rem;
-	color: var(--color-surface-600);
+	color: var(--color-surface-600, #57534e);
 	font-size: 0.9375rem;
 	line-height: 1.7;
 
@@ -214,27 +195,27 @@
 		}
 
 		&::marker {
-			color: var(--color-primary-500);
+			color: var(--color-primary-500, #14b8a6);
 		}
 	}
 
 	a {
-		color: var(--color-primary-600);
+		color: var(--color-primary-600, #0097B2);
 		text-decoration: underline;
 		text-decoration-color: var(--color-primary-200, #99f6e4);
 		text-underline-offset: 2px;
 		transition:
-			color var(--duration-fast) ease,
-			text-decoration-color var(--duration-fast) ease;
+			color var(--duration-fast, 150ms) ease,
+			text-decoration-color var(--duration-fast, 150ms) ease;
 
 		&:hover {
-			color: var(--color-primary-700);
+			color: var(--color-primary-700, #0f766e);
 			text-decoration-color: var(--color-primary-400, #2dd4bf);
 		}
 	}
 
 	code {
-		background: var(--color-surface-100);
+		background: var(--color-surface-100, #f5f5f4);
 		padding: 0.125rem 0.375rem;
 		border-radius: 0.25rem;
 		font-size: 0.875em;
@@ -243,8 +224,8 @@
 	blockquote {
 		margin: 1rem 0;
 		padding-left: 1rem;
-		border-left: 3px solid var(--color-primary-500);
-		color: var(--color-surface-700);
+		border-left: 3px solid var(--color-primary-500, #14b8a6);
+		color: var(--color-surface-700, #44403c);
 		font-style: italic;
 	}
 }
