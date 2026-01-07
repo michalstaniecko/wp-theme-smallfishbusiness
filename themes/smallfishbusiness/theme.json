@@ -53,9 +53,9 @@
           "slug": "sans"
         },
         {
-          "fontFamily": "'Merriweather', Georgia, serif",
-          "name": "Serif",
-          "slug": "serif"
+          "fontFamily": "'Playfair Display', Georgia, serif",
+          "name": "Display",
+          "slug": "display"
         }
       ]
     },
